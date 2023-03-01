@@ -1,10 +1,12 @@
 
-# Reference
-- [Data Visualization with Python and JavaScript](https://www.oreilly.com/library/view/data-visualization-with/9781098111861/)
-  - JavaScript’s monopoly of browser dataviz needs the complement of a conventional data-processing stack. And Python has the best there is.
+# [Data Visualization with Python and JavaScript](https://www.oreilly.com/library/view/data-visualization-with/9781098111861/)
 
 
-# JS v.s. Python, difference
+- JavaScript’s monopoly of browser dataviz needs the complement of a conventional data-processing stack. And Python has the best there is.
+
+
+## JS v.s. Python, difference
+
 - [JavaScript is single-threaded and non-blocking using asynchronous I/O](https://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js)
   - This means that simple things like file access involve the use of a callback function.
 - JS is the only first-class language in web browsers, Python being excluded.
@@ -14,12 +16,14 @@
 - JS lacks heavyweight general-purpose data-processing libs
 - JavaScript interpreter comes embedded in all modern web browsers. ... If you want to try out code one-liners or quiz the state of live code, browser-based consoles are your best bet.
 
-# Style Convention
+## Style Convention
+
 - JS conventionally uses CamelCase (e.g., `processStudentData`) for its variables,
 - whereas Python, in accordance with PEP-8, uses underscores (e.g., `process_student_data`) in its variable names. By convention (and convention is more important in the Python ecosystem than JS), Python uses capitalized `CamelCase` for `class` declarations.
 
 
-# Use `let` and `var`
+## Use `let` and `var`
+
 - One of the main criticisms of JavaScript, and a fair one, is that it plays fast and loose with namespace conventions. 
 - The most egregious example of this is that **variables declared outside of functions or missing the `var` keyword are global rather than confined to the script in which they are declared.**
 - make each of your scripts a self-calling function. This makes all variables declared via `var` local to the script/function, preventing them from polluting the global namespace.
@@ -39,7 +43,8 @@
     } (window.nbviz = window.nbviz || {}));
 ```
 
-# Example of JavaScript data processing
+## Example of JavaScript data processing
+
 ```javascript
 // A (note deliberate and valid inconsistency in keys:
 // some quoted and some unquoted)
