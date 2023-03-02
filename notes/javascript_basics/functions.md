@@ -1,5 +1,7 @@
 # Functions
 
+- From: [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+
 ## Concept: Non/Primitive data types
 
 - From: [scaler post](https://www.scaler.com/topics/javascript/pass-by-value-and-pass-by-reference/)
