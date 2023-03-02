@@ -3,7 +3,7 @@
 ## Topics
 
 - [Functions](functions.md)
-- [Objects]()
+- [Objects](object.md)
 - [Arrays and array methods]()
 - [Destructuring]()
 - [Template literals]()
