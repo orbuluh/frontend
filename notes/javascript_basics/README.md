@@ -4,11 +4,10 @@
 
 - [Functions](functions.md)
 - [Objects](object.md)
-- [Arrays and array methods]()
-- [Destructuring]()
-- [Template literals]()
-- [Ternary Operators]()
-- [ES Modules and Import / Export Syntax]()
+- [Arrays and array methods](array.md)
+- [Expressions and operators](expression_and_operators.md)
+- [Template literals](template_literals.md)
+- [Modules](modules.md)
 
 
 ## Reference
