@@ -1,10 +1,17 @@
 # Object
 
-- From: [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+- [mdn web docs 1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+- [mdn web docs 2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 
 ## Basics
 
-The `Object` type represents one of JavaScript's data types. It is used to store various keyed collections and more complex entities.
+JavaScript is designed on a simple object-based paradigm.
+
+- The `Object` type represents one of JavaScript's data types.
+- An object is a collection of properties, and
+- a property is an association between a name (or key) and a value.
+- A property's value can be a function, in which case the property is known as a method.
+
 
 - A typical object inherits properties (including methods) from `Object.prototype`, although these properties may be shadowed (a.k.a. `overridden`).
 - The only objects that don't inherit from `Object.prototype` are those with `null` prototype, or descended from other `null` prototype objects.
@@ -163,4 +170,8 @@ Many built-in operations that expect objects first coerce their arguments to obj
 The best way to achieve the same effect in JavaScript is through the `Object()` constructor.
 
 - `Object(x)` converts `x` to an object, and for undefined or null, it returns a plain object instead of throwing a TypeError.
+
+## Useful static functions
+
+
 
