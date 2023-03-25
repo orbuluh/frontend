@@ -18,8 +18,6 @@
 - [Template literals](template_literals.md)
 - [Modules](modules.md)
 
-
-
 ## Reference
 
 - [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
