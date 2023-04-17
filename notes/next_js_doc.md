@@ -1,4 +1,16 @@
-# [Next.JS Doc](https://nextjs.org/learn/foundations/about-nextjs) notes
+# Next.JS Doc notes
+
+- [NextJS tutorial](https://nextjs.org/learn/foundations/about-nextjs)
+- [NextJs api reference](https://nextjs.org/docs/api-reference/create-next-app)
+
+## Quick cookbook
+
+```bash
+# sudo npm i -g create-next-app
+# create a new project
+create-next-app . --eslint --experimental-app --use-pnpm
+# checkout create-next-app -h for flags
+```
 
 ## Introduction
 
@@ -333,6 +345,9 @@ In the context of web applications...
 There is an unavoidable unit of work to **convert the code you write in React into the HTML representation of your UI**. This process is called **rendering**.
 
 - Rendering can take place on the server or on the client. It can happen either ahead of time at build time, or on every request at runtime.
+  - The client refers to the browser on a user’s device that sends a request to a server for your application code. It then turns the response from the server into an interface the user can interact with.
+  - The server refers to the computer in a data center that stores your application code, receives requests from a client, does some computation, and sends back an appropriate response.
+  - Server is a general name that can refer to computers in Origin Regions where your application is deployed to, the Edge Network where your application code is distributed, or Content Delivery Networks (CDNs) where the result of the rendering work can be cached
 - With Next.js, three types of rendering methods are available: **Server-Side Rendering, Static Site Generation, and Client-Side Rendering.**
   - The beauty of Next.js is that you can choose the most appropriate rendering method for your use case on a page-by-page basis, whether that's Static Site Generation, Server-side Rendering, or Client-Side Rendering.
   - Server-Side Rendering and Static Site Generation are also referred to as **Pre-Rendering** because the fetching of external data and transformation of React components into HTML happens **before** the result is sent to the client.
@@ -365,6 +380,35 @@ There is an unavoidable unit of work to **convert the code you write in React in
 - In Next.js, you can opt to statically generate pages by using `getStaticProps`.
 - Note: You can use **Incremental Static Regeneration** to create or update static pages **after you’ve built your site**. This means you **do not have to rebuild your entire site if your data changes**.
 
+
+## Server and Client Components,
+
+- Before React 18, the primary way to render your application using React was entirely on the client. Next.js provided an easier way to break down your application into pages and pre-render on the server by generating HTML and sending it to the client to be **hydrated** by React. However, this led to additional JavaScript needed on the client to make the initial HTML interactive.
+- Now, with Server and Client Components, React can render on the client and the server meaning **you can choose the rendering environment at the component level.**
+- By default, the `app` directory uses **Server Components**, allowing you to easily render components on the server and reducing the amount of JavaScript sent to the client.
+- You can interleave Server and Client Components in a component tree
+  - by importing a Client Component into a Server component, or
+  - by passing a Server Component as a child or a prop to a Client Component.
+  - Behind the scenes, React will merge the work of both environments.
+![](https://assets.vercel.com/image/upload/f_auto,q_100,w_1600/v1678098147/nextjs-docs/darkmode/component-tree.png)
+
+### Static and Dynamic Rendering on the Server
+
+- In addition to client-side and server-side rendering with React components, Next.js gives you the option to **optimize rendering on the server with Static and Dynamic Rendering.**
+
+Static Rendering
+
+- With Static Rendering, both Server and Client Components can be prerendered on the server at build time.
+- The result of the work is cached and reused on subsequent requests. The cached result can also be revalidated.
+- This is equivalent to Static Site Generation (SSG) and Incremental Static Regeneration (ISR).
+- Server and Client components are rendered differently during Static Rendering:
+  - Client Components have their HTML and JSON prerendered and cached on the server. The cached result is then sent to the client for hydration.
+  - Server Components are rendered on the server by React, and their payload is used to generate HTML. The same rendered payload is also used to hydrate the components on the client, resulting in no JavaScript needed on the client.
+
+Dynamic Rendering
+
+- With Dynamic Rendering, both Server and Client Components are rendered on the server at request time. The result of the work is not cached.
+- Note: This is equivalent to Server-Side Rendering (`getServerSideProps()`)
 
 ## Where your application code is stored and run once it’s deployed to the network?
 
@@ -407,8 +451,9 @@ There is an unavoidable unit of work to **convert the code you write in React in
 
 ## Layout
 
-- Layout component which will be shared across all pages.
-- Can be used with CSS
+- The React model allows us to deconstruct a page into a series of components. Many of these components are often **reused between pages**.
+  - For example, you might have the same navigation bar and footer on every page.
+- Layout component will be shared across all pages. And it can be used with CSS.
 
 ## Assets
 
@@ -428,9 +473,14 @@ There is an unavoidable unit of work to **convert the code you write in React in
 
 ## Metadata
 
-What if we wanted to modify the metadata of the page, such as the `<title>` HTML tag?
-
-- You can use the `import Head from 'next/head';` e.g. `Head` component
+- Metadata is the abstract of the website's content and is used to attach a title, a description, and an image to the site.
+- The `title` tag is one of the most important SEO elements for two main reasons:
+  - Firstly, it's what users see when they click to enter your website from search results.
+  - Secondly, it's one of the main elements Google uses to understand what your page is about.
+- **Using keywords in the title is recommended because it usually leads to increased improved ranking positions in search engines.**
+- The `description` meta tag is another important SEO element, but less so than the title. According to Google, this element is not taken into account for ranking purposes, but it can affect your click-through-rate on search results.
+- In Next.js, we set the `title` and `description` in the `Head` component. This is how meta title and description tags might look like in Next.js
+  - You can use the `import Head from 'next/head';` e.g. `Head` component
 
 ## Third-Party JavaScript
 
@@ -439,24 +489,27 @@ What if we wanted to modify the metadata of the page, such as the `<title>` HTML
 
 ## CSS Modules
 
-- CSS modules allow you to l**ocally scope CSS at the component-level by automatically creating unique class names**.
+- Next.js allows you to import CSS files from a JavaScript file. This is possible because Next.js extends the concept of import beyond JavaScript.
+- CSS modules allow you to **locally scope CSS at the component-level by automatically creating unique class names**.
   - This allows you to use the same CSS class name in different files without worrying about class name collisions.
 
 - In addition to CSS modules, you can style your Next.js application in a variety of ways, including:
   - Sass which allows you to import `.css` and `.scss` files.
   - PostCSS libraries like Tailwind CSS.
-  - CSS-in-JS libraries such as styled-jsx, styled-components, and emotion
+  - CSS-in-JS libraries such as `styled-jsx`, `styled-components`, and `emotion`
+
 
 - CSS module automatically generates unique class names. As long as you use CSS Modules, you don’t have to worry about class name collisions.
 - Next.js’s code splitting feature works on CSS Modules as well. It ensures the minimal amount of CSS is loaded for each page. This results in smaller bundle sizes.
-- CSS Modules are extracted from the JavaScript bundles at build time and generate .css files that are loaded automatically by Next.js
+- CSS Modules are extracted from the JavaScript bundles at build time and generate `.css` files that are loaded automatically by Next.js
 
 
-## Global Styles
+## Global Styles with `_app.js`
 
 - If you want some CSS to be loaded by every page, Next.js has support to load global CSS to your application, create a file called `pages/_app.js`
-- The default export of _app.js is a top-level React component that wraps all the pages in your application. You can use this component to keep state when navigating between pages, or to add global styles
-- You can place the global CSS file anywhere and use any name. But in Next.js, you can only load the global CSS files by importing them from pages/_app.js. You cannot import global CSS anywhere else.
+- The default export of `_app.js` is a top-level React component that wraps all the pages in your application.
+  - You can use this component to keep state when navigating between pages, or to add global styles
+  - You can place the global CSS file anywhere and use any name. But in Next.js, you can only load the global CSS files by importing them from `pages/_app.js`. You cannot import global CSS anywhere else.
   - The reason that global CSS can't be imported outside of `pages/_app.js` is that global CSS affects all elements on the page.
 
 ## CSS utility class
@@ -685,3 +738,18 @@ export default function handler(req, res) {
 
 - `req `is an instance of `http.IncomingMessage`, plus some pre-built middlewares.
 - `res` is an instance of `http.ServerResponse`, plus some helper functions.
+
+
+## Routing Fundamentals
+
+Next.js 13 introduced the new App Router built on top of React Server Components with support for layouts, nested routing, loading states, error handling, and more
+
+- The new App Router works in a new directory named `app`.
+  - The `app` directory works alongside the `pages` directory to allow for incremental adoption.
+  - This allows you to opt some routes of your application into the new behavior while keeping other routes in the pages directory for previous behavior.
+- Routes across directories should not resolve to the same URL path and will cause a build-time error to prevent a conflict.
+- By default, components inside app are React Server Components. This is a performance optimization and allows you to easily adopt them. However, you can also use Client Components.
+- In the `app` directory:
+  - Folders are used to define routes.
+  - A route is a single path of nested folders, following the hierarchy from the root folder down to a final leaf folder that includes a `page.js` file.
+  - Files are used to create UI that is shown for the route segment

@@ -2,6 +2,8 @@
 
 ## [JavaScript basics](javascript_basics/README.md)
 
+## [Book: Effective typescript](effective_typescript/README.md)
+
 ## [Road to React](road_to_react/README.md)
 
 ## [Next.JS](next_js_doc.md)
