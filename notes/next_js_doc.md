@@ -35,8 +35,8 @@ Next.js is a flexible React framework that gives you building blocks to create f
 
 :large_blue_diamond: What is Next.js?
 
-- Next.js is a React framework that gives you building blocks to create web applications.
-- By framework, we mean Next.js handles the tooling and configuration needed for React, and provides additional structure, features, and optimizations for your application.
+- Next.js is a **React framework** that **gives you building blocks to create web applications.**
+- By framework, we mean **Next.js handles the tooling and configuration needed for React, and provides additional structure, features, and optimizations for your application.**
 
 ![](https://nextjs.org/static/images/learn/foundations/next-app.png)
 
@@ -49,12 +49,11 @@ Next.js is a flexible React framework that gives you building blocks to create f
 |![](https://nextjs.org/static/images/learn/foundations/html-to-dom.png)|![](https://nextjs.org/static/images/learn/foundations/dom-to-ui.png)|
 
 - You can use **DOM methods** and a programming language, such as JavaScript, to listen to user events and manipulate the DOM by selecting, adding, updating, and deleting specific elements in the user interface.
-- DOM manipulation allows you to not only target specific elements, but also change their style and content.
-- Updating the UI with JavaScript and DOM Methods, developers spend a lot of time writing instructions to tell the computer how it should do things, though.
-- Wouldn't it be nice to **describe what you want to show and let the computer figure out how to update the DOM**? In other words, imperative programming is like giving a chef step-by-step instructions on how to make a pizza. Declarative programming is like ordering a pizza without being concerned about the steps it takes to make the pizza.
+- DOM manipulation allows you to not only target specific elements, but also change their style and content. Updating the UI with JavaScript and DOM Methods, developers spend a lot of time writing instructions to tell the computer how it should do things, though. In other words, imperative programming is like giving a chef step-by-step instructions on how to make a pizza.
+- Wouldn't it be nice to **describe what you want to show and let the computer figure out how to update the DOM**?  Declarative programming is like ordering a pizza without being concerned about the steps it takes to make the pizza.
 - A popular declarative library that helps developers build user interfaces is React.
 
-:large_blue_diamond: React: A declarative UI library
+:large_blue_diamond: **React: A declarative UI library**
 
 - Compare:
 
@@ -86,7 +85,7 @@ Few things with react:
 - `react` is the core React library.
 - `react-dom` provides DOM-specific methods that enable you to use React with the DOM.
 - You need to compile your React code though. Why? React uses JSX which needs to be compiled into JavaScript. You’ll need a JavaScript compiler, such as a **Babel**, to transform your JSX code into regular JavaScript.
-- JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax. (e.g. the `ReactDOM.render(<h1>Develop. Preview. Ship. 🚀</h1>, app);` above)
+- JSX is a **syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.** (e.g. the `ReactDOM.render(<h1>Develop. Preview. Ship. 🚀</h1>, app);` above)
   - The nice thing about JSX is that apart from following three JSX rules, you don’t need to learn any new symbols or syntax outside of HTML and JavaScript.
 
 ## React Core Concepts
@@ -100,7 +99,8 @@ There are three core concepts of React to start building React applications. The
 ### Building UI with **Components**
 
 - User interfaces can be broken down into smaller building blocks called **components**.
-- The nice thing about React components is that they are just JavaScript. In React, components are **functions that return UI elements**.
+- The nice thing about React components is that **they are just JavaScript.**
+- In React, components are **functions that return UI elements**.
 
 ```js
 const app = document.getElementById("app");
@@ -141,7 +141,7 @@ What if you want to pass different text or you don't know the information ahead 
 
 - Regular HTML elements have attributes that you can use to pass pieces of information that change the behavior of those elements.
   - For example, changing the `src` attribute of an `<img>` element changes the image that is shown. Changing the `href` attribute of an `<a>` tag changes the destination of the link.
-  - In the same way, you can pass pieces of information as properties to React components. These are called **props**
+  - In the same way, you can **pass pieces of information as properties to React components.** These are called **props**
 - Similar to a JavaScript function, you can design components that **accept custom arguments (or props) that change the component’s behavior or what is visibly shown when it’s rendered to the screen.** Then, you can pass down these props from parent components to child components.
 - In React, **data flows down the component tree.** This is referred to as **one-way data flow**. E.g. **State**, can be passed from parent to child components as props.
 
@@ -195,8 +195,8 @@ function TryList() {
 ### State and Hooks
 
 - React has a set of functions called **hooks**.
-- Hooks allow you to add additional logic such as state to your components.
-- You can think of state as any information in your UI that changes over time, usually triggered by user interaction.
+- Hooks allow you to **add additional logic such as state to your components**.
+- You can think of state as any **information in your UI that changes over time**, usually triggered by user interaction.
 - For example, you can use state to store and increment the number of times a user has clicked a button.
   - In fact, this is what the React hook to manage state is called: `useState()`
 
@@ -215,7 +215,8 @@ function HomePage() {
 }
 ```
 
-- Props is read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.
+- **Props is read-only information** that's passed to components.
+- **State is information that can change over time,** usually triggered by user interaction.
 - Unlike props which are passed to components as the first function parameter, the state is initiated and stored within a component.
 - You can pass the state information to children components as props, but the logic for updating the state should be kept within the component where state was initially created.
 
@@ -225,12 +226,12 @@ To build a complete web application with React from scratch, there are many impo
 
 - Code has to be bundled using a bundler like webpack and transformed using a compiler like Babel.
 - You need to do production optimizations such as code splitting.
-- You might want to statically pre-render some pages for performance and SEO. You might also want to use server-side rendering or client-side rendering.
+- You might want to statically pre-render some pages for performance and SEO.
+- You might also want to use server-side rendering or client-side rendering.
 - You might have to write some server-side code to connect your React app to your data store.
 
-While React excels at building UI, it does take some work to independently build that UI into a fully functioning scalable application.
+While React excels at building UI, it does take some work to independently build that UI into a fully functioning scalable application. A framework can solve these problems.
 
-- A framework can solve these problems.
 - But such a framework must have the right level of abstraction — otherwise it won’t be very useful.
 - It also needs to have great "Developer Experience", ensuring you and your team have an amazing experience while writing code.
 - Next.js handles much of the setup and configuration and has additional features to help you build React applications.
@@ -261,7 +262,8 @@ $ touch pages/index.jsx # then write the script here
 npm run dev
 ```
 
-- Overall, React is relatively unopinionated about how you build and structure your applications - there are multiple ways to build applications with React.Next.js provides a framework to structure your application, and optimizations that help make both the development process and final application faster.
+- Overall, React is relatively unopinionated about how you build and structure your applications - there are multiple ways to build applications with React.
+- Next.js provides a framework to structure your application, and optimizations that help make both the development process and final application faster.
 
 
 ## Next.js features
@@ -383,8 +385,10 @@ There is an unavoidable unit of work to **convert the code you write in React in
 
 ## Server and Client Components,
 
-- Before React 18, the primary way to render your application using React was entirely on the client. Next.js provided an easier way to break down your application into pages and pre-render on the server by generating HTML and sending it to the client to be **hydrated** by React. However, this led to additional JavaScript needed on the client to make the initial HTML interactive.
-- Now, with Server and Client Components, React can render on the client and the server meaning **you can choose the rendering environment at the component level.**
+- Before React 18, the primary way to render your application using React was entirely on the client.
+- Next.js provided an easier way to break down your application into pages and pre-render on the server by generating HTML and sending it to the client to be **hydrated** by React.
+- However, this led to additional JavaScript needed on the client to make the initial HTML interactive.
+- Now, with Server and Client Components, React can render on the client and the server, meaning **you can choose the rendering environment at the component level.**
 - By default, the `app` directory uses **Server Components**, allowing you to easily render components on the server and reducing the amount of JavaScript sent to the client.
 - You can interleave Server and Client Components in a component tree
   - by importing a Client Component into a Server component, or
@@ -445,9 +449,12 @@ Dynamic Rendering
 
 ## Code splitting and prefetching
 
-- Next.js does code splitting automatically, so each page only loads what’s necessary for that page. That means when the homepage is rendered, the code for other pages is not served initially. This ensures that the homepage loads quickly even if you have hundreds of pages.
+- Next.js does code splitting automatically, so each page only loads what’s necessary for that page.
+  - That means when the homepage is rendered, the code for other pages is not served initially.
+  - This ensures that the homepage loads quickly even if you have hundreds of pages.
 - Only loading the code for the page you request also means that pages become isolated. If a certain page throws an error, the rest of the application would still work.
-- Furthermore, in a production build of Next.js, whenever Link components appear in the browser’s viewport, **Next.js automatically prefetches the code for the linked page in the background.** By the time you click the link, the code for the destination page will already be loaded in the background, and the page transition will be near-instant.
+- Furthermore, in a production build of Next.js, whenever Link components appear in the browser’s viewport, **Next.js automatically prefetches the code for the linked page in the background.**
+  - By the time you click the link, the code for the destination page will already be loaded in the background, and the page transition will be near-instant.
 
 ## Layout
 
@@ -515,7 +522,8 @@ Dynamic Rendering
 ## CSS utility class
 
 - Create a set of CSS utility classes (for text styles) that can be re-used across multiple components.
-- You can reuse these utility classes throughout your application, and you may even use utility classes in your global.css file. Utility classes refer to an approach of writing CSS selectors rather than a method (e.g. global styles, CSS modules, Sass, etc).
+- You can reuse these utility classes throughout your application, and you may even use utility classes in your global.css file.
+- Utility classes refer to an approach of writing CSS selectors rather than a method (e.g. global styles, CSS modules, Sass, etc).
 - Keyword: [utility-first CSS](https://tailwindcss.com/docs/utility-first)
 
 
